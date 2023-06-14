@@ -62,6 +62,22 @@ class HomeViewController:UIViewController{
         let storyboard = UIStoryboard(name:"Main",bundle:nil)
         let memoDetailViewController=storyboard.instantiateViewController(identifier: "MemoDetailViewController")as!
         MemoDetailViewController
+
+//追加
+
+        //追加するメモ用のmemoDataを作成して、realmに追加
+        let memoData = MemoDataModel()
+        let realm = try! Realm()
+        try! realm.write(){
+            realm.add(memoData)
+        }
+
+        //memoDetailViewControllerで操作ができるようにデータをセット
+        memoDetailViewController.configure(memo: memoData)
+
+
+//終了
+
         navigationController?.pushViewController(memoDetailViewController, animated:true)
     }
 
@@ -140,10 +156,13 @@ class HomeViewController:UIViewController{
 //        これが効かない
 //        navigationController?.navigationBar.barTintColor=type.color
 //        navigationController?.navigationBar.barTintColor = type.color
-        view?.backgroundColor=type.color
+//        view?.backgroundColor=type.color
+        navigationController?.navigationBar.scrollEdgeAppearance?.backgroundColor=type.color
+
         
 //        ヘッダーのタイトルテキストを変更
-        navigationController?.navigationBar.titleTextAttributes=[NSAttributedString.Key.foregroundColor:tintColor]
+//        navigationController?.navigationBar.titleTextAttributes=[NSAttributedString.Key.foregroundColor:tintColor]
+        navigationController?.navigationBar.scrollEdgeAppearance?.titleTextAttributes=[NSAttributedString.Key.foregroundColor:tintColor]
         saveThemeColor(type: type)
     }
 

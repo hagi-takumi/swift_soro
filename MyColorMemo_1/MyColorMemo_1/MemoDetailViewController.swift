@@ -27,12 +27,19 @@ class MemoDetailViewController:UIViewController{
         displayData()
         setDoneButton()
         textView.delegate=self
+
+
+
+        self.textView.becomeFirstResponder()
     }
     //    MemoDataModel.swiftより
     func configure(memo:MemoDataModel){
-        memoData.text=memo.text
-        memoData.recordDate=memo.recordDate
-        print("データは\(memoData.text) と\(memoData.recordDate)")
+//        追加
+        memoData=memo
+//        終了
+//        memoData.text=memo.text
+//        memoData.recordDate=memo.recordDate
+//        print("データは\(memoData.text) と\(memoData.recordDate)")
     }
 
     //    表示内容を代入
@@ -57,10 +64,12 @@ class MemoDetailViewController:UIViewController{
         try! realm.write{
             memoData.text=text
             memoData.recordDate=Date()
-            realm.add(memoData)
+//            取り敢えず追加しない_変更
+//            realm.add(memoData)
         }
         print("text:\(memoData.text),recordDate:\(memoData.recordDate)")
     }
+
 
 }
 
