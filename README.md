@@ -10,6 +10,8 @@
 <img src="https://img.shields.io/badge/-Ruby-CC342D.svg?logo=ruby&style=plastic">
 <img src="https://img.shields.io/badge/-cocoapods-AD2C27.svg?logo=&style=plastic">
 <img src="https://img.shields.io/badge/-Realm-61DAFB.svg?logo=&style=plastic">
+<img src="https://img.shields.io/badge/-Xcode-1575F9.svg?logo=xcode&style=plastic">
+<img src="https://img.shields.io/badge/-Swift-FA7343.svg?logo=swift&style=plastic">
 </div>
 
 <hr>
